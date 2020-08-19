@@ -24,8 +24,8 @@ export const HomeDrawer = (props: any): DrawerElement => {
   return (
     <SafeAreaLayout insets={SaveAreaInset.TOP}>
       <Drawer
-        data={props.state.routes.map(createNavigationItemForRoute)}
-        onSelect={onMenuItemSelect}
+        data={props.state.routes.map(createDrawerItemForRoute)}
+        onSelect={onItemSelect}
       />
     </SafeAreaLayout>
   );
