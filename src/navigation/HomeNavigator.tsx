@@ -1,13 +1,41 @@
-import React from 'react'
-import { createStackNavigator } from '@react-navigation/stack'
+import React from 'react';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { TodoNavigator } from './TodoNavigator';
+import { ProfileNavigator } from './ProfileNavigator';
+import { AppRoute } from './AppRoutes';
+import { HomeTabBar, HomeDrawer, AboutScreen } from '../scenes/home';
+import { HomeIcon, InfoIcon, LayoutIcon, PersonIcon } from '../assets/icons';
 
-import { HomeScreen } from '../scenes/home/HomeScreen';
+const Drawer = createDrawerNavigator();
+const BottomTab = createBottomTabNavigator();
 
-const Stack = createStackNavigator();
-export function HomeNavigator() {
-  return (
-    <Stack.Navigator mode='modal' headerMode='none'>
-      <Stack.Screen name="Home" component={HomeScreen} />
-    </Stack.Navigator>
-  );
-}
+const HomeBottomNavigator = (): React.ReactElement => (
+  <BottomTab.Navigator tabBar={props => <HomeTabBar {...props} />}>
+    <BottomTab.Screen
+      name={AppRoute.TODO}
+      component={TodoNavigator}
+      options={{ title: 'TODO', tabBarIcon: LayoutIcon }}
+    />
+    <BottomTab.Screen
+      name={AppRoute.PROFILE}
+      component={ProfileNavigator}
+      options={{ title: 'PROFILE', tabBarIcon: PersonIcon }}
+    />
+  </BottomTab.Navigator>
+);
+
+export const HomeNavigator = (): React.ReactElement => (
+  <Drawer.Navigator drawerContent={props => <HomeDrawer {...props} />}>
+    <Drawer.Screen
+      name={AppRoute.HOME}
+      component={HomeBottomNavigator}
+      options={{ title: 'Home', drawerIcon: HomeIcon }}
+    />
+    <Drawer.Screen
+      name={AppRoute.ABOUT}
+      component={AboutScreen}
+      options={{ title: 'About', drawerIcon: InfoIcon }}
+    />
+  </Drawer.Navigator>
+);
