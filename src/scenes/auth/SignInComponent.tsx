@@ -54,8 +54,9 @@ export const SignInScreen = (props: SignInScreenProps): LayoutElement => {
           style={styles.formControl}
           checked={shouldRemember}
           onChange={setShouldRemember}
-          text='Remember Me'
-        />
+        >
+          Remember Me
+        </CheckBox>
         <Button
           appearance='ghost'
           status='basic'
