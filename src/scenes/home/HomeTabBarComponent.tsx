@@ -1,9 +1,15 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { BottomNavigation, BottomNavigationTab, Divider, BottomNavigationTabElement } from '@ui-kitten/components';
-import { SafeAreaLayout, SafeAreaLayoutElement, SaveAreaInset } from '../../components/safe-area-layout.component';
-
+import { SafeAreaLayout, SafeAreaLayoutElement, SaveAreaInset } from '@components/safe-area-layout.component';
+import { ENV, URL } from 'react-native-dotenv'
 export const HomeTabBar = (props): SafeAreaLayoutElement => {
-
+  const env = () => {
+    console.log(URL) // variables from .env file
+    console.log(ENV)
+   }
+   useEffect(() => {
+    env()
+   }, [])
   const onSelect = (index: number): void => {
     const selectedTabRoute: string = props.state.routeNames[index];
     props.navigation.navigate(selectedTabRoute);

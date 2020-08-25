@@ -8,6 +8,7 @@ type AuthNavigatorParams = {
   [AppRoute.SIGN_IN]: undefined;
   [AppRoute.SIGN_UP]: undefined;
   [AppRoute.RESET_PASSWORD]: undefined;
+  [AppRoute.HOME]: undefined;
 }
 
 export interface SignInScreenProps {
@@ -23,6 +24,11 @@ export interface SignUpScreenProps {
 export interface ResetPasswordScreenProps {
   navigation: StackNavigationProp<AuthNavigatorParams, AppRoute.RESET_PASSWORD>;
   route: RouteProp<AuthNavigatorParams, AppRoute.RESET_PASSWORD>;
+}
+
+export interface HomeScreenProps {
+  navigation: StackNavigationProp<AuthNavigatorParams, AppRoute.HOME>;
+  route: RouteProp<AuthNavigatorParams, AppRoute.HOME>;
 }
 
 const Stack = createStackNavigator();

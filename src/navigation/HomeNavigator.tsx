@@ -5,17 +5,18 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { RouteProp } from '@react-navigation/core';
 // import { TodoNavigator } from './TodoNavigator';
 import { ProfileNavigator } from './ProfileNavigator';
+import { ChatNavigator } from './ChatNavigator';
 import { AppRoute } from './AppRoutes';
-import { HomeTabBar, HomeDrawer, AboutScreen } from '../scenes/home';
-import { HomeIcon, InfoIcon, LayoutIcon, PersonIcon } from '../assets/icons';
+import { HomeTabBar, HomeDrawer, AboutScreen } from '@scenes/home';
+import { HomeIcon, InfoIcon, LayoutIcon, PersonIcon, ChatIcon } from '@assets/icons';
 
-type TodoNavigatorParams = {
+type HomeNavigatorParams = {
   [AppRoute.ABOUT]: any;
 }
 
 export interface AboutScreenProps {
-  navigation: StackNavigationProp<TodoNavigatorParams, AppRoute.ABOUT>;
-  route: RouteProp<TodoNavigatorParams, AppRoute.ABOUT>;
+  navigation: StackNavigationProp<HomeNavigatorParams, AppRoute.ABOUT>;
+  route: RouteProp<HomeNavigatorParams, AppRoute.ABOUT>;
 }
 
 const Drawer = createDrawerNavigator();
@@ -27,6 +28,11 @@ const HomeBottomNavigator = (): React.ReactElement => (
       name={AppRoute.PROFILE}
       component={ProfileNavigator}
       options={{ title: 'PROFILE', tabBarIcon: PersonIcon }}
+    />
+    <BottomTab.Screen
+      name={AppRoute.CHAT}
+      component={ChatNavigator}
+      options={{ title: 'CHAT', tabBarIcon: ChatIcon }}
     />
   </BottomTab.Navigator>
 );

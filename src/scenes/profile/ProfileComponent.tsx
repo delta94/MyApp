@@ -1,14 +1,14 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { Divider, Layout, Text } from '@ui-kitten/components';
-import { ProfileScreenProps } from '../../navigation/ProfileNavigator';
-import { Toolbar } from '../../components/toolbar.component';
+import { ProfileScreenProps } from '@navigation/ProfileNavigator';
+import { Toolbar } from '@components/toolbar.component';
 import {
   SafeAreaLayout,
   SafeAreaLayoutElement,
   SaveAreaInset,
-} from '../../components/safe-area-layout.component';
-import { MenuIcon } from '../../assets/icons';
+} from '@components/safe-area-layout.component';
+import { MenuIcon } from '@assets/icons';
 
 export const ProfileScreen = (props: ProfileScreenProps): SafeAreaLayoutElement => (
   <SafeAreaLayout

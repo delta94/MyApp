@@ -4,13 +4,13 @@ import { RouteProp } from '@react-navigation/core';
 import { AppRoute } from './AppRoutes';
 import { ProfileScreen } from '../scenes/profile';
 
-type TodoNavigatorParams = {
+type ProfileNavigatorParams = {
   [AppRoute.PROFILE]: any;
 }
 
 export interface ProfileScreenProps {
-  navigation: StackNavigationProp<TodoNavigatorParams, AppRoute.PROFILE>;
-  route: RouteProp<TodoNavigatorParams, AppRoute.PROFILE>;
+  navigation: StackNavigationProp<ProfileNavigatorParams, AppRoute.PROFILE>;
+  route: RouteProp<ProfileNavigatorParams, AppRoute.PROFILE>;
 }
 
 

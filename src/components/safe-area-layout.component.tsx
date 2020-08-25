@@ -9,9 +9,11 @@ export enum SaveAreaInset {
 }
 
 type InsetsProp = SaveAreaInset | SaveAreaInset[];
+type StylesProp = any;
 
 interface SafeAreaLayoutProps extends LayoutProps {
   insets?: InsetsProp;
+  style?: StylesProp;
 }
 
 export type SafeAreaLayoutElement = React.ReactElement<SafeAreaLayoutProps>;

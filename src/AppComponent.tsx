@@ -6,6 +6,8 @@ import { ApplicationProvider, IconRegistry } from '@ui-kitten/components';
 import { EvaIconsPack } from '@ui-kitten/eva-icons';
 import { AppNavigator } from './navigation/AppNavigator';
 import { AppRoute } from './navigation/AppRoutes';
+import { YellowBox } from 'react-native';
+YellowBox.ignoreWarnings(['Remote debugger']);
 
 export default (): React.ReactFragment => {
 

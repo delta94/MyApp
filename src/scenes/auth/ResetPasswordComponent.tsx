@@ -3,11 +3,11 @@ import { ImageBackground, StyleSheet } from 'react-native';
 import { EdgeInsets, useSafeArea } from 'react-native-safe-area-context';
 import { Button, Layout, LayoutElement } from '@ui-kitten/components';
 import { Formik, FormikProps } from 'formik';
-import { ResetPasswordScreenProps } from '../../navigation/AuthNavigator';
-import { AppRoute } from '../../navigation/AppRoutes';
-import { FormInput } from '../../components/form-input.component';
-import { Toolbar } from '../../components/toolbar.component';
-import { ResetPasswordData, ResetPasswordSchema } from '../../data/reset-password.model';
+import { ResetPasswordScreenProps } from '@navigation/AuthNavigator';
+import { AppRoute } from '@navigation/AppRoutes';
+import { FormInput } from '@components/form-input.component';
+import { Toolbar } from '@components/toolbar.component';
+import { ResetPasswordData, ResetPasswordSchema } from '@data/reset-password.model';
 
 export const ResetPasswordScreen = (props: ResetPasswordScreenProps): LayoutElement => {
 

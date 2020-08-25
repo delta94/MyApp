@@ -1,6 +1,6 @@
 import React from 'react';
 import { Drawer, DrawerItem, DrawerElement, DrawerItemElement, IndexPath } from '@ui-kitten/components';
-import { SafeAreaLayout, SaveAreaInset } from '../../components/safe-area-layout.component';
+import { SafeAreaLayout, SaveAreaInset } from '@components/safe-area-layout.component';
 
 export const HomeDrawer = (props: any): DrawerElement => {
 

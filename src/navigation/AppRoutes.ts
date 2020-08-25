@@ -6,4 +6,5 @@ export enum AppRoute {
   HOME = 'Home',
   PROFILE = 'Profile',
   ABOUT = 'About',
+  CHAT = 'Chat',
 }
