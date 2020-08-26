@@ -1,14 +1,11 @@
 import React, {useEffect} from 'react';
-import { BottomNavigation, BottomNavigationTab, Divider, BottomNavigationTabElement } from '@ui-kitten/components';
+import { View } from 'react-native'
+import {Text, BottomNavigation, BottomNavigationTab, Divider, BottomNavigationTabElement } from '@ui-kitten/components';
 import { SafeAreaLayout, SafeAreaLayoutElement, SaveAreaInset } from '@components/safe-area-layout.component';
-import { ENV, URL } from 'react-native-dotenv'
+import Tabbar from "./Tabbar";
 export const HomeTabBar = (props): SafeAreaLayoutElement => {
-  const env = () => {
-    console.log(URL) // variables from .env file
-    console.log(ENV)
-   }
    useEffect(() => {
-    env()
+    //  console.log(props.state.routes)
    }, [])
   const onSelect = (index: number): void => {
     const selectedTabRoute: string = props.state.routeNames[index];
@@ -18,11 +15,15 @@ export const HomeTabBar = (props): SafeAreaLayoutElement => {
   const createNavigationTabForRoute = (route): BottomNavigationTabElement => {
     const { options } = props.descriptors[route.key];
     return (
-      <BottomNavigationTab
-        key={route.key}
-        title={options.title}
-        icon={options.tabBarIcon}
-      />
+      // <Tabbar />
+      <View>
+        <Tabbar />
+      </View>
+      // <BottomNavigationTab
+      //   key={route.key}
+      //   title={options.title}
+      //   icon={options.tabBarIcon}
+      // />
     );
   };
 

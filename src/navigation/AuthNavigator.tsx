@@ -5,12 +5,12 @@ import {
   StackNavigationProp,
   TransitionPresets,
   TransitionSpecs,
-  CardStyleInterpolators
+  CardStyleInterpolators,
 } from '@react-navigation/stack';
 import { AppRoute } from './AppRoutes';
 import { SignInScreen, SignUpScreen, ResetPasswordScreen } from '../scenes/auth';
 import { timing } from 'react-native-reanimated';
-import { Easing } from 'react-native';
+import { Animated, Easing } from 'react-native';
 
 type AuthNavigatorParams = {
   [AppRoute.SIGN_IN]: undefined;
@@ -58,17 +58,6 @@ const Stack = createStackNavigator();
 //     restSpeedThreshold: 0.01,
 //   },
 // }
-// const config = {
-//   animation: 'spring',
-//   config: {
-//     stiffness: 1000,
-//     damping: 500,
-//     mass: 3,
-//     overshootClamping: true,
-//     restDisplacementThreshold: 0.01,
-//     restSpeedThreshold: 0.01,
-//   },
-// };
 export const AuthNavigator = (): React.ReactElement => {
   return (
     <Stack.Navigator
@@ -80,7 +69,7 @@ export const AuthNavigator = (): React.ReactElement => {
         // cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
         // transitionSpec: {
         //   open: TransitionSpecs.TransitionIOSSpec,
-        //   close: config,
+        //   close: closeConfig,
         // },
       }}
     >
