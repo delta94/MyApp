@@ -89,15 +89,18 @@ export default ({ transition, activeTransition }: ParticulesProps) => {
           const subParticules = bottomParticules.slice(0, particule);
           const translateX = subParticules.reduce(
             acc => withSpringTransition(acc),
-            divide(add(x, withSpringTransition(x)), 2)
+            x
+            // divide(add(x, withSpringTransition(x)), 2)
           );
           const translateY = subParticules.reduce(
             acc => withSpringTransition(acc),
-            divide(add(bottom, withSpringTransition(bottom)), 2)
+            bottom
+            // divide(add(bottom, withSpringTransition(bottom)), 2)
           );
           const scale = subParticules.reduce(
             acc => withSpringTransition(acc),
-            divide(add(s, withSpringTransition(s)), 2)
+            s
+            // divide(add(s, withSpringTransition(s)), 2)
           );
           return (
             <Animated.View

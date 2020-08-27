@@ -8,8 +8,9 @@ import Chat from "./icons/Chat";
 import User from "./icons/User";
 import { ICON_SIZE, PADDING, SEGMENT } from "./icons/Constants";
 import Particules from "./Particules";
-import { Value } from "react-native-reanimated";
-import { withTransition } from "react-native-redash";
+import Weave from "./Weave";
+import { Value, useCode, block, set, onChange } from "react-native-reanimated";
+import { withTransition, timing } from "react-native-redash";
 
 const tabs = [
   { icon: <Compass /> },
@@ -38,12 +39,18 @@ const styles = StyleSheet.create({
 export default () => {
   const active = new Value<number>(0)
   const transition = withTransition(active)
+  const activeTransition = new Value(0)
+  useCode(() => block([
+    onChange(active, set(activeTransition, 0)),
+    set(activeTransition, timing({}))
+  ]), [])
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.tabs}>
         {/* <Particules /> */}
         {tabs.map(({ icon }, index) => (
           <View key={index} style={styles.tab}>
+            <Weave {...{active, index}}/>
             <Tab onPress={() => active.setValue(index)}
               {...{ active, index, transition }}
             >
@@ -51,6 +58,7 @@ export default () => {
             </Tab>
           </View>
         ))}
+        <Particules {...{transition, activeTransition}} />
       </View>
     </SafeAreaView>
   );
