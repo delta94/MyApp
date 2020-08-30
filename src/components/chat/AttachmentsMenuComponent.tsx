@@ -81,11 +81,11 @@ export const AttachmentsMenu = (props: AttachmentsMenuProps): React.ReactElement
         renderItem={renderAttachment}
         ListHeaderComponent={renderActionAttachment}
       />
-      <Menu
+      {/* <Menu
         data={menu}
         scrollEnabled={false}
         onSelect={onAttachmentsMenuItemSelect}
-      />
+      /> */}
       <Button
         appearance='ghost'
         size='giant'

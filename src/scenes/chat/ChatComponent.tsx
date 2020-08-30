@@ -2,7 +2,9 @@ import React, {useState} from 'react'
 import {
   ImageSourcePropType,
   Keyboard,
-  Platform
+  Platform,
+  Animated,
+  Dimensions,
 } from 'react-native'
 import {
   Button,
@@ -27,6 +29,8 @@ import { ChatScreenProps } from '@navigation/ChatNavigator'
 import { Chat } from '@components/chat/ChatComponent'
 import { Toolbar } from '@components/toolbar.component';
 
+const  deviceHeight = Dimensions.get('window').height
+
 const initialMessages: Message[] = [
 
 ];
@@ -43,6 +47,8 @@ export const ChatScreen = (props: ChatScreenProps): SafeAreaLayoutElement => {
   const [messages, setMessages] = useState<Message[]>(initialMessages);
   const [message, setMessage] = useState<string>('');
   const [attachmentsMenuVisible, setAttachmentsMenuVisible] = useState<boolean>(false);
+  // const [modalY, setModalY] = useState(new Animated.Value(-deviceHeight))
+  let modalY = new Animated.Value(0)
 
   const sendButtonEnabled = (): boolean => {
     return message !== '' && message.length > 0;
@@ -58,7 +64,25 @@ export const ChatScreen = (props: ChatScreenProps): SafeAreaLayoutElement => {
     Keyboard.dismiss();
   };
 
+  const openModal = () => {
+    Animated.timing(modalY, {
+        duration: 300,
+        toValue: 200,
+        useNativeDriver: true
+     }).start(); 
+
+  const closeModal = () => {
+    Animated.timing(modalY, {
+        duration: 300,
+        toValue: -deviceHeight,
+        useNativeDriver: true
+     }).start();
+  }
+
   const renderAttachmentsMenu = (): React.ReactElement => (
+    <Animated.View style={{
+      transform: [{ translateY: 0 }]
+    }}>
     <AttachmentsMenu
       attachments={galleryAttachments}
       onSelectPhoto={toggleAttachmentsMenu}
@@ -69,6 +93,7 @@ export const ChatScreen = (props: ChatScreenProps): SafeAreaLayoutElement => {
       onCameraPress={toggleAttachmentsMenu}
       onDismiss={toggleAttachmentsMenu}
     />
+    </Animated.View>
   );
   return (
     <SafeAreaLayout
@@ -108,7 +133,25 @@ export const ChatScreen = (props: ChatScreenProps): SafeAreaLayoutElement => {
           onPress={onSendButtonPress}
         />
       </KeyboardAvoidingView>
-      {attachmentsMenuVisible && renderAttachmentsMenu()}
+      <Animated.View style={{
+        // height: modalY
+        transform: [{ translateY: modalY }]
+      }}>
+      <AttachmentsMenu
+        attachments={galleryAttachments}
+        onSelectPhoto={toggleAttachmentsMenu}
+        onSelectFile={toggleAttachmentsMenu}
+        onSelectLocation={toggleAttachmentsMenu}
+        onSelectContact={toggleAttachmentsMenu}
+        onAttachmentSelect={toggleAttachmentsMenu}
+        onCameraPress={toggleAttachmentsMenu}
+        onDismiss={toggleAttachmentsMenu}
+      />
+    </Animated.View>
+    { attachmentsMenuVisible &&
+      openModal()
+    }
+      {/* {attachmentsMenuVisible && renderAttachmentsMenu()} */}
     </SafeAreaLayout>
   )
 }

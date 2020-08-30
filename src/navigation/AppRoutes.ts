@@ -7,4 +7,5 @@ export enum AppRoute {
   PROFILE = 'Profile',
   ABOUT = 'About',
   CHAT = 'Chat',
+  LOGOUT = 'Logout',
 }

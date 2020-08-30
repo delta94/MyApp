@@ -6,9 +6,10 @@ import { RouteProp } from '@react-navigation/core';
 // import { TodoNavigator } from './TodoNavigator';
 import { ProfileNavigator } from './ProfileNavigator';
 import { ChatNavigator } from './ChatNavigator';
+import { AuthNavigator } from './AuthNavigator';
 import { AppRoute } from './AppRoutes';
 import { HomeTabBar, HomeDrawer, AboutScreen } from '@scenes/home';
-import { HomeIcon, InfoIcon, LayoutIcon, PersonIcon, ChatIcon } from '@assets/icons';
+import { HomeIcon, InfoIcon, LogoutIcon, PersonIcon, ChatIcon } from '@assets/icons';
 
 type HomeNavigatorParams = {
   [AppRoute.ABOUT]: any;
@@ -48,6 +49,11 @@ export const HomeNavigator = (): React.ReactElement => (
       name={AppRoute.ABOUT}
       component={AboutScreen}
       options={{ title: 'About', drawerIcon: InfoIcon }}
+    />
+    <Drawer.Screen
+      name={AppRoute.LOGOUT}
+      component={AuthNavigator}
+      options={{ title: 'Logout', drawerIcon: LogoutIcon }}
     />
   </Drawer.Navigator>
 );
