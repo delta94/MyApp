@@ -25,6 +25,7 @@ import {
 } from '@components/safe-area-layout.component'
 import { ChatScreenProps } from '@navigation/ChatNavigator'
 import { Chat } from '@components/chat/ChatComponent'
+import { Toolbar } from '@components/toolbar.component';
 
 const initialMessages: Message[] = [
 
@@ -72,7 +73,12 @@ export const ChatScreen = (props: ChatScreenProps): SafeAreaLayoutElement => {
   return (
     <SafeAreaLayout
       style={styles.container}
-      insets={SaveAreaInset.TOP}>
+      insets={SaveAreaInset.TOP}
+    >
+      <Toolbar
+        title='Chat'
+        onBackPress={props.navigation.goBack}
+      />
       <Chat
         style={styles.list}
         contentContainerStyle={styles.listContent}

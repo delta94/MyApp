@@ -16,8 +16,8 @@ interface ParticulesProps {
   activeTransition: Animated.Node<number>;
 }
 
-const size = 6;
-const topParticules = [0, 1, 2];
+const size = 7;
+const topParticules = [0, 1, 1];
 const bottomParticules = [0, 1];
 const HEIGHT = ICON_SIZE + PADDING;
 const styles = StyleSheet.create({

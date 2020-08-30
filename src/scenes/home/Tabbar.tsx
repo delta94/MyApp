@@ -15,6 +15,8 @@ import { withTransition, timing } from "react-native-redash";
 const tabs = [
   { icon: <Compass /> },
   { icon: <Chat /> },
+  { icon: <Chat /> },
+  { icon: <Chat /> },
   // { icon: <Camera /> },
   // { icon: <Bell /> }
   { icon: <User /> }
@@ -25,7 +27,7 @@ const styles = StyleSheet.create({
   },
   tabs: {
     flexDirection: "row",
-    alignItems: "center"
+    // alignItems: "center",
   },
   tab: {
     width: SEGMENT,
@@ -47,7 +49,6 @@ export default () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.tabs}>
-        {/* <Particules /> */}
         {tabs.map(({ icon }, index) => (
           <View key={index} style={styles.tab}>
             <Weave {...{active, index}}/>

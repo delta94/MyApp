@@ -15,15 +15,11 @@ export const HomeTabBar = (props): SafeAreaLayoutElement => {
   const createNavigationTabForRoute = (route): BottomNavigationTabElement => {
     const { options } = props.descriptors[route.key];
     return (
-      // <Tabbar />
-      <View>
-        <Tabbar />
-      </View>
-      // <BottomNavigationTab
-      //   key={route.key}
-      //   title={options.title}
-      //   icon={options.tabBarIcon}
-      // />
+      <BottomNavigationTab
+        key={route.key}
+        title={options.title}
+        icon={options.tabBarIcon}
+      />
     );
   };
 
@@ -35,6 +31,7 @@ export const HomeTabBar = (props): SafeAreaLayoutElement => {
         selectedIndex={props.state.index}
         onSelect={onSelect}>
         {props.state.routes.map(createNavigationTabForRoute)}
+        {/* <Tabbar /> */}
       </BottomNavigation>
     </SafeAreaLayout>
   );

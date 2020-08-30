@@ -32,7 +32,7 @@ const HomeBottomNavigator = (): React.ReactElement => (
     <BottomTab.Screen
       name={AppRoute.CHAT}
       component={ChatNavigator}
-      options={{ title: 'CHAT', tabBarIcon: ChatIcon }}
+      options={{ title: 'CHAT', tabBarIcon: ChatIcon, tabBarVisible: false }}
     />
   </BottomTab.Navigator>
 );
