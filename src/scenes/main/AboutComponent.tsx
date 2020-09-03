@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { Divider, Layout, Text } from '@ui-kitten/components';
-import { ProfileScreenProps } from '@navigation/ProfileNavigator';
+import { AboutScreenProps } from '@navigation/MainNavigator';
 import { Toolbar } from '@components/toolbar.component';
 import {
   SafeAreaLayout,
@@ -9,18 +9,18 @@ import {
   SaveAreaInset,
 } from '@components/safe-area-layout.component';
 
-export const ProfileScreen = (props: ProfileScreenProps): SafeAreaLayoutElement => (
+export const AboutScreen = (props: AboutScreenProps): SafeAreaLayoutElement => (
   <SafeAreaLayout
     style={styles.safeArea}
     insets={SaveAreaInset.TOP}>
     <Toolbar
-      title='Profile'
+      title='React Navigation Ex 🐱'
       onBackPress={props.navigation.goBack}
     />
     <Divider/>
     <Layout style={styles.container}>
       <Text category='h1'>
-        PROFILE
+        ABOUT
       </Text>
     </Layout>
   </SafeAreaLayout>

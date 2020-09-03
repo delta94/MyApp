@@ -64,25 +64,7 @@ export const ChatScreen = (props: ChatScreenProps): SafeAreaLayoutElement => {
     Keyboard.dismiss();
   };
 
-  const openModal = () => {
-    Animated.timing(modalY, {
-        duration: 300,
-        toValue: 200,
-        useNativeDriver: true
-     }).start(); 
-
-  const closeModal = () => {
-    Animated.timing(modalY, {
-        duration: 300,
-        toValue: -deviceHeight,
-        useNativeDriver: true
-     }).start();
-  }
-
   const renderAttachmentsMenu = (): React.ReactElement => (
-    <Animated.View style={{
-      transform: [{ translateY: 0 }]
-    }}>
     <AttachmentsMenu
       attachments={galleryAttachments}
       onSelectPhoto={toggleAttachmentsMenu}
@@ -93,7 +75,6 @@ export const ChatScreen = (props: ChatScreenProps): SafeAreaLayoutElement => {
       onCameraPress={toggleAttachmentsMenu}
       onDismiss={toggleAttachmentsMenu}
     />
-    </Animated.View>
   );
   return (
     <SafeAreaLayout
@@ -133,25 +114,7 @@ export const ChatScreen = (props: ChatScreenProps): SafeAreaLayoutElement => {
           onPress={onSendButtonPress}
         />
       </KeyboardAvoidingView>
-      <Animated.View style={{
-        // height: modalY
-        transform: [{ translateY: modalY }]
-      }}>
-      <AttachmentsMenu
-        attachments={galleryAttachments}
-        onSelectPhoto={toggleAttachmentsMenu}
-        onSelectFile={toggleAttachmentsMenu}
-        onSelectLocation={toggleAttachmentsMenu}
-        onSelectContact={toggleAttachmentsMenu}
-        onAttachmentSelect={toggleAttachmentsMenu}
-        onCameraPress={toggleAttachmentsMenu}
-        onDismiss={toggleAttachmentsMenu}
-      />
-    </Animated.View>
-    { attachmentsMenuVisible &&
-      openModal()
-    }
-      {/* {attachmentsMenuVisible && renderAttachmentsMenu()} */}
+      {attachmentsMenuVisible && renderAttachmentsMenu()}
     </SafeAreaLayout>
   )
 }

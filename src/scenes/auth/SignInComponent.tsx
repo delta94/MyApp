@@ -14,11 +14,11 @@ export const SignInScreen = (props: SignInScreenProps): LayoutElement => {
   const [passwordVisible, setPasswordVisible] = React.useState<boolean>(false);
 
   const onFormSubmit = (values: SignInData): void => {
-    navigateHome();
+    navigateMain();
   };
 
-  const navigateHome = (): void => {
-    props.navigation.navigate(AppRoute.HOME);
+  const navigateMain = (): void => {
+    props.navigation.navigate(AppRoute.MAIN);
   };
 
   const navigateSignUp = (): void => {

@@ -1,59 +1,22 @@
 import React from 'react';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { StackNavigationProp } from '@react-navigation/stack';
+import { createStackNavigator, StackNavigationProp } from '@react-navigation/stack';
 import { RouteProp } from '@react-navigation/core';
-// import { TodoNavigator } from './TodoNavigator';
-import { ProfileNavigator } from './ProfileNavigator';
-import { ChatNavigator } from './ChatNavigator';
-import { AuthNavigator } from './AuthNavigator';
 import { AppRoute } from './AppRoutes';
-import { HomeTabBar, HomeDrawer, AboutScreen } from '@scenes/home';
-import { HomeIcon, InfoIcon, LogoutIcon, PersonIcon, ChatIcon } from '@assets/icons';
+import { HomeScreen } from '../scenes/home';
 
 type HomeNavigatorParams = {
-  [AppRoute.ABOUT]: any;
+  [AppRoute.HOME]: any;
 }
 
-export interface AboutScreenProps {
-  navigation: StackNavigationProp<HomeNavigatorParams, AppRoute.ABOUT>;
-  route: RouteProp<HomeNavigatorParams, AppRoute.ABOUT>;
+export interface HomeScreenProps {
+  navigation: StackNavigationProp<HomeNavigatorParams, AppRoute.HOME>;
+  route: RouteProp<HomeNavigatorParams, AppRoute.HOME>;
 }
 
-const Drawer = createDrawerNavigator();
-const BottomTab = createBottomTabNavigator();
-
-const HomeBottomNavigator = (): React.ReactElement => (
-  <BottomTab.Navigator tabBar={props => <HomeTabBar {...props} />}>
-    <BottomTab.Screen
-      name={AppRoute.PROFILE}
-      component={ProfileNavigator}
-      options={{ title: 'PROFILE', tabBarIcon: PersonIcon }}
-    />
-    <BottomTab.Screen
-      name={AppRoute.CHAT}
-      component={ChatNavigator}
-      options={{ title: 'CHAT', tabBarIcon: ChatIcon, tabBarVisible: false }}
-    />
-  </BottomTab.Navigator>
-);
+const Stack = createStackNavigator();
 
 export const HomeNavigator = (): React.ReactElement => (
-  <Drawer.Navigator drawerContent={props => <HomeDrawer {...props} />}>
-    <Drawer.Screen
-      name={AppRoute.HOME}
-      component={HomeBottomNavigator}
-      options={{ title: 'Home', drawerIcon: HomeIcon }}
-    />
-    <Drawer.Screen
-      name={AppRoute.ABOUT}
-      component={AboutScreen}
-      options={{ title: 'About', drawerIcon: InfoIcon }}
-    />
-    <Drawer.Screen
-      name={AppRoute.LOGOUT}
-      component={AuthNavigator}
-      options={{ title: 'Logout', drawerIcon: LogoutIcon }}
-    />
-  </Drawer.Navigator>
+  <Stack.Navigator headerMode='none'>
+    <Stack.Screen name={AppRoute.HOME} component={HomeScreen}/>
+  </Stack.Navigator>
 );

@@ -14,11 +14,11 @@ export const SignUpScreen = (props: SignUpScreenProps): LayoutElement => {
   const insets: EdgeInsets = useSafeArea();
 
   const onFormSubmit = (values: SignUpData): void => {
-    navigateHome();
+    navigateMain();
   };
 
-  const navigateHome = (): void => {
-    props.navigation.navigate(AppRoute.HOME);
+  const navigateMain = (): void => {
+    props.navigation.navigate(AppRoute.MAIN);
   };
 
   const navigateSignIn = (): void => {

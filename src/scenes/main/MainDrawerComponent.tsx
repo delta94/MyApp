@@ -2,7 +2,7 @@ import React from 'react';
 import { Drawer, DrawerItem, DrawerElement, DrawerItemElement, IndexPath } from '@ui-kitten/components';
 import { SafeAreaLayout, SaveAreaInset } from '@components/safe-area-layout.component';
 
-export const HomeDrawer = (props: any): DrawerElement => {
+export const MainDrawer = (props: any): DrawerElement => {
 
   const onItemSelect = (index: IndexPath): void => {
     const selectedTabRoute: string = props.state.routeNames[index.row];

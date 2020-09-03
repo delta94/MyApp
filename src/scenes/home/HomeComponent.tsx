@@ -1,26 +1,28 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { Divider, Layout, Text } from '@ui-kitten/components';
-import { AboutScreenProps } from '@navigation/HomeNavigator';
+import { HomeScreenProps } from '@navigation/HomeNavigator';
 import { Toolbar } from '@components/toolbar.component';
 import {
   SafeAreaLayout,
   SafeAreaLayoutElement,
   SaveAreaInset,
 } from '@components/safe-area-layout.component';
+import { MenuIcon } from '@assets/icons';
 
-export const AboutScreen = (props: AboutScreenProps): SafeAreaLayoutElement => (
+export const HomeScreen = (props: HomeScreenProps): SafeAreaLayoutElement => (
   <SafeAreaLayout
     style={styles.safeArea}
     insets={SaveAreaInset.TOP}>
     <Toolbar
       title='React Navigation Ex 🐱'
-      onBackPress={props.navigation.goBack}
+      backIcon={MenuIcon}
+      onBackPress={props.navigation.toggleDrawer}
     />
     <Divider/>
     <Layout style={styles.container}>
       <Text category='h1'>
-        ABOUT
+        HOME
       </Text>
     </Layout>
   </SafeAreaLayout>

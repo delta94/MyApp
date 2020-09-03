@@ -3,7 +3,7 @@ import { View } from 'react-native'
 import {Text, BottomNavigation, BottomNavigationTab, Divider, BottomNavigationTabElement } from '@ui-kitten/components';
 import { SafeAreaLayout, SafeAreaLayoutElement, SaveAreaInset } from '@components/safe-area-layout.component';
 import Tabbar from "./Tabbar";
-export const HomeTabBar = (props): SafeAreaLayoutElement => {
+export const MainTabBar = (props): SafeAreaLayoutElement => {
    useEffect(() => {
     //  console.log(props.state.routes)
    }, [])
